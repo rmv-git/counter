@@ -1,0 +1,19 @@
+.header {
+    width: 350px;
+    height: 64px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fffffe;
+    margin: 5px 0 5px 0;
+    background-color: #004643;
+    color: black;
+    font-size: 16px;
+    font-weight: bolder;
+}

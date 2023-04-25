@@ -1,10 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from '../counter-with-settings/CounterWithSettings.module.css';
 import {Header} from "../common/Header";
 
-export const CounterWithSettings = () => {
+type PropsType = {
+    counterValue: number;
+    setCounterValue: (value: number) => void;
+    startValue: number;
+    maxValue: number;
+}
 
-    const [counterValue, setCounterValue] = useState<number>(0);
+export const CounterWithSettings = ({counterValue, setCounterValue, startValue, maxValue}: PropsType) => {
 
     const incrementCounterValue = () => {
         setCounterValue(counterValue + 1);

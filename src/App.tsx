@@ -8,6 +8,8 @@ export const App = () => {
     const [counterValue, setCounterValue] = useState<number>(0);
     const [startValue, setStartValue] = useState<number>(0);
     const [maxValue, setMaxValue] = useState<number>(0);
+    const [textError, setTextError] = useState<string>('');
+
 
     useEffect(() => {
         const localStorageAsString = localStorage.getItem('startValue');
@@ -33,6 +35,18 @@ export const App = () => {
         localStorage.setItem('maxValue', JSON.stringify(maxValue));
     }, [maxValue]);
 
+    useEffect(() => {
+        if (startValue === maxValue) {
+            setTextError(`enter values and press 'set'`);
+        }
+        if (startValue > maxValue) {
+            setTextError('value is incorrect');
+        }
+        if (startValue === counterValue) {
+            setTextError('');
+        }
+    }, [startValue, maxValue, counterValue]);
+
     return (
         <div className="App">
             <Settings counterValue={counterValue}
@@ -44,7 +58,8 @@ export const App = () => {
             <CounterWithSettings counterValue={counterValue}
                                  setCounterValue={setCounterValue}
                                  startValue={startValue}
-                                 maxValue={maxValue}/>
+                                 maxValue={maxValue}
+                                 textError={textError}/>
         </div>
     );
 }

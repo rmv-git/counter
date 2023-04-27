@@ -40,6 +40,8 @@ export const Settings = ({
         }
     }
 
+    const setDisabled = startValue === maxValue || startValue > maxValue || counterValue === startValue;
+
     return (
         <div>
             <Header title={'COUNTER SETTINGS'}/>
@@ -65,7 +67,8 @@ export const Settings = ({
                 </div>
                 <div className={style.buttonWrapper}>
                     <button className={style.button}
-                            onClick={setValue}>SET
+                            onClick={setValue}
+                            disabled={setDisabled}>SET
                     </button>
                 </div>
             </div>

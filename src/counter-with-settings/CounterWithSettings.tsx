@@ -1,6 +1,7 @@
 import React from 'react';
 import style from '../counter-with-settings/CounterWithSettings.module.css';
 import {Header} from "../common/Header";
+import {Settings} from "./Settings/Settings";
 
 type PropsType = {
     counterValue: number;
@@ -8,6 +9,7 @@ type PropsType = {
     startValue: number;
     maxValue: number;
     textError: string;
+    setMaxValue: (value: number) => void;
 }
 
 export const CounterWithSettings = ({counterValue, setCounterValue, startValue, maxValue, ...props}: PropsType) => {
@@ -26,26 +28,34 @@ export const CounterWithSettings = ({counterValue, setCounterValue, startValue, 
     const errorDEC = counterValue === startValue;
 
     return (
-        <div>
-            <Header title={'COUNTER'}/>
-            <div className={style.counterWrapper}>
-                <div className={style.counterValue}>{counterValue}</div>
-                <div>
-                    {props.textError}
-                    {/*{error && `enter values and press 'set'`}*/}
-                </div>
-<div>
-    {/*{incorrectValue && `value is incorrect`}*/}
-</div>
-                <div className={style.buttonWrapper}>
-                    <button className={style.button}
-                            onClick={incrementCounterValue}
-                            disabled={errorINC}>INC
-                    </button>
-                    <button className={style.button}
-                            onClick={decrementCounterValue} disabled={errorDEC}>DEC
-                    </button>
-                    <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
+        <div className={style.wrapper}>
+            <Settings counterValue={counterValue}
+                      setCounterValue={setCounterValue}
+                      startValue={startValue}
+                      setStartValue={setCounterValue}
+                      maxValue={maxValue}
+                      setMaxValue={props.setMaxValue}/>
+            <div>
+                <Header title={'COUNTER'}/>
+                <div className={style.counterWrapper}>
+                    <div className={style.counterValue}>{counterValue}</div>
+                    <div>
+                        {props.textError}
+                        {/*{error && `enter values and press 'set'`}*/}
+                    </div>
+                    <div>
+                        {/*{incorrectValue && `value is incorrect`}*/}
+                    </div>
+                    <div className={style.buttonWrapper}>
+                        <button className={style.button}
+                                onClick={incrementCounterValue}
+                                disabled={errorINC}>INC
+                        </button>
+                        <button className={style.button}
+                                onClick={decrementCounterValue} disabled={errorDEC}>DEC
+                        </button>
+                        <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
+                    </div>
                 </div>
             </div>
         </div>

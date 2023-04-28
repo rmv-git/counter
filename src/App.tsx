@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {CounterWithSettings} from "./counter-with-settings/CounterWithSettings";
 import {Settings} from "./counter-with-settings/Settings/Settings";
+import {Dashboard} from "./dashboard/Dashboard";
+import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
+import {SimpleCounter} from "./simple-counter/SimpleCounter";
 
 export const App = () => {
 
@@ -49,17 +52,29 @@ export const App = () => {
 
     return (
         <div className="App">
-            <Settings counterValue={counterValue}
-                      setCounterValue={setCounterValue}
-                      startValue={startValue}
-                      setStartValue={setStartValue}
-                      maxValue={maxValue}
-                      setMaxValue={setMaxValue}/>
-            <CounterWithSettings counterValue={counterValue}
-                                 setCounterValue={setCounterValue}
-                                 startValue={startValue}
-                                 maxValue={maxValue}
-                                 textError={textError}/>
+            <Routes>
+                <Route path="/" element={
+                    <Dashboard counterValue={counterValue}
+                               setCounterValue={setCounterValue}
+                               startValue={startValue}
+                               maxValue={maxValue}
+                               textError={textError}/>}>
+                </Route>
+                    <Route
+                        path="simple-counter"
+                        element={<SimpleCounter/>}
+                    >
+                    </Route>
+                    <Route path="counter-with-settings" element={
+                        <CounterWithSettings counterValue={counterValue}
+                                             setCounterValue={setCounterValue}
+                                             startValue={startValue}
+                                             maxValue={maxValue}
+                                             textError={textError}
+                                             setMaxValue={setMaxValue}
+                        />}>
+                        </Route>
+            </Routes>
         </div>
     );
 }

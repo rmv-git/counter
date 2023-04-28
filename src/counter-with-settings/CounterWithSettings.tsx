@@ -2,6 +2,7 @@ import React from 'react';
 import style from '../counter-with-settings/CounterWithSettings.module.css';
 import {Header} from "../common/Header";
 import {Settings} from "./Settings/Settings";
+import {NavLink} from "react-router-dom";
 
 type PropsType = {
     counterValue: number;
@@ -58,6 +59,9 @@ export const CounterWithSettings = ({counterValue, setCounterValue, startValue, 
                     </div>
                 </div>
             </div>
+            <button className={style.buttonReturn}>
+                <NavLink className={style.navLink} to={'/'}>RETURN</NavLink>
+            </button>
         </div>
     );
 };

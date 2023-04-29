@@ -44,9 +44,9 @@ export const CounterWithSettings = ({counterValue, setCounterValue, startValue, 
                         {props.textError}
                         {/*{error && `enter values and press 'set'`}*/}
                     </div>
-                    <div>
+                    {/*<div>*/}
                         {/*{incorrectValue && `value is incorrect`}*/}
-                    </div>
+                    {/*</div>*/}
                     <div className={style.buttonWrapper}>
                         <button className={style.button}
                                 onClick={incrementCounterValue}
@@ -59,9 +59,9 @@ export const CounterWithSettings = ({counterValue, setCounterValue, startValue, 
                     </div>
                 </div>
             </div>
-            <button className={style.buttonReturn}>
-                <NavLink className={style.navLink} to={'/'}>RETURN</NavLink>
-            </button>
+            <div>
+                <NavLink className={style.buttonReturn} to={'/'}>RETURN</NavLink>
+            </div>
         </div>
     );
 };

@@ -108,6 +108,10 @@
     background-color: crimson;
 }
 .buttonReturn {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 128px;
     height: 48px;
     border-radius: 7px;
@@ -117,8 +121,6 @@
     background-color: #f9bc60;
     color: black;
     font-size: medium;
-}
-.navLink {
     text-decoration: none;
 }
 

@@ -1,7 +1,7 @@
 .counterWrapper {
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     border-color: white;
     border-style: solid;
@@ -86,7 +86,7 @@
     border-width: 1px;
     border-color: #fffffe;
     margin: 5px 0 5px 0;
-    background-color: #abd1c6;
+    background-color: #004643;
     color: black;
     font-size: 16px;
     font-weight: bolder;
@@ -94,6 +94,9 @@
 
 .buttonReturn {
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 128px;
     height: 48px;
     border-radius: 7px;
@@ -103,7 +106,5 @@
     background-color: #f9bc60;
     color: black;
     font-size: medium;
-}
-.navLink {
     text-decoration: none;
 }

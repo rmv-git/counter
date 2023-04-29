@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import style from './SimpleCounter.module.css';
 import {NavLink} from "react-router-dom";
+import {Header} from "../common/Header";
 
 export const SimpleCounter = () => {
 
@@ -18,9 +19,10 @@ export const SimpleCounter = () => {
 
     return (
         <div>
+            <Header title={'COUNTER'}/>
             <div className={style.counterWrapper}>
-                <div className={style.header}>COUNTER</div>
-                <div>
+                {/*<div className={style.header}>COUNTER</div>*/}
+                {/*<div>*/}
                     <div className={style.counterValue}>{counterValue}</div>
                     <div className={style.buttonWrapper}>
                         <button className={style.button}
@@ -32,11 +34,9 @@ export const SimpleCounter = () => {
                         <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
                     </div>
                 </div>
-            </div>
+            {/*</div>*/}
             <div style={{display: "flex", flexFlow: 'column', alignItems: 'center'}}>
-            <button className={style.buttonReturn}>
-                <NavLink className={style.navLink} to={'/'}>RETURN</NavLink>
-            </button>
+                <NavLink className={style.buttonReturn} to={'/'}>RETURN</NavLink>
             </div>
         </div>
     );

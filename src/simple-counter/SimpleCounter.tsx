@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import style from './SimpleCounter.module.css';
+import {NavLink} from "react-router-dom";
+import {Header} from "../common/Header";
 
 export const SimpleCounter = () => {
 
@@ -16,19 +18,22 @@ export const SimpleCounter = () => {
     }
 
     return (
-        <div className={style.counterWrapper}>
-            <div className={style.header}>COUNTER</div>
-            <div>
-            <div className={style.counterValue}>{counterValue}</div>
-            <div className={style.buttonWrapper}>
-                <button className={style.button}
-                        onClick={incrementCounterValue}>INC
-                </button>
-                <button className={style.button}
-                        onClick={decrementCounterValue}>DEC
-                </button>
-                <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
-            </div>
+        <div>
+            <Header title={'COUNTER'}/>
+            <div className={style.counterWrapper}>
+                    <div className={style.counterValue}>{counterValue}</div>
+                    <div className={style.buttonWrapper}>
+                        <button className={style.button}
+                                onClick={incrementCounterValue}>INC
+                        </button>
+                        <button className={style.button}
+                                onClick={decrementCounterValue}>DEC
+                        </button>
+                        <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
+                    </div>
+                </div>
+            <div style={{display: "flex", flexFlow: 'column', alignItems: 'center'}}>
+                <NavLink className={style.buttonReturn} to={'/'}>RETURN</NavLink>
             </div>
         </div>
     );

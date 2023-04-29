@@ -1,53 +1,41 @@
 import React from 'react';
 import style from '../counter-with-settings/CounterWithSettings.module.css';
-import {Header} from "../common/Header";
+import {Settings} from "./settings/Settings";
+import {Counter} from "./counter/Counter";
 
 type PropsType = {
     counterValue: number;
     setCounterValue: (value: number) => void;
     startValue: number;
+    setStartValue: (value: number) => void;
     maxValue: number;
     textError: string;
+    setMaxValue: (value: number) => void;
 }
 
-export const CounterWithSettings = ({counterValue, setCounterValue, startValue, maxValue, ...props}: PropsType) => {
-
-    const incrementCounterValue = () => {
-        setCounterValue(counterValue + 1);
-    }
-    const decrementCounterValue = () => {
-        setCounterValue(counterValue - 1);
-    }
-    const resetCounterValue = () => {
-        setCounterValue(0);
-    }
-
-    const errorINC = counterValue === maxValue;
-    const errorDEC = counterValue === startValue;
-
+export const CounterWithSettings = ({
+                                        counterValue,
+                                        setCounterValue,
+                                        startValue,
+                                        setStartValue,
+                                        maxValue,
+                                        setMaxValue,
+                                        textError
+                                    }: PropsType) => {
     return (
-        <div>
-            <Header title={'COUNTER'}/>
-            <div className={style.counterWrapper}>
-                <div className={style.counterValue}>{counterValue}</div>
-                <div>
-                    {props.textError}
-                    {/*{error && `enter values and press 'set'`}*/}
-                </div>
-<div>
-    {/*{incorrectValue && `value is incorrect`}*/}
-</div>
-                <div className={style.buttonWrapper}>
-                    <button className={style.button}
-                            onClick={incrementCounterValue}
-                            disabled={errorINC}>INC
-                    </button>
-                    <button className={style.button}
-                            onClick={decrementCounterValue} disabled={errorDEC}>DEC
-                    </button>
-                    <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
-                </div>
-            </div>
+        <div className={style.wrapper}>
+            <Settings counterValue={counterValue}
+                      setCounterValue={setCounterValue}
+                      startValue={startValue}
+                      setStartValue={setStartValue}
+                      maxValue={maxValue}
+                      setMaxValue={setMaxValue}/>
+            <Counter counterValue={counterValue}
+                     setCounterValue={setCounterValue}
+                     startValue={startValue}
+                     maxValue={maxValue}
+                     textError={textError}
+                     setMaxValue={setMaxValue}/>
         </div>
     );
 };

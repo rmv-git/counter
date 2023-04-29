@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {CounterWithSettings} from "./counter-with-settings/CounterWithSettings";
-import {Settings} from "./counter-with-settings/Settings/Settings";
 import {Dashboard} from "./dashboard/Dashboard";
-import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {SimpleCounter} from "./simple-counter/SimpleCounter";
+import {CounterWithSettings} from "./counter-with-settings/CounterWithSettings";
 
 export const App = () => {
 
@@ -54,26 +53,22 @@ export const App = () => {
         <div className="App">
             <Routes>
                 <Route path="/" element={
-                    <Dashboard counterValue={counterValue}
-                               setCounterValue={setCounterValue}
-                               startValue={startValue}
-                               maxValue={maxValue}
-                               textError={textError}/>}>
+                    <Dashboard/>}/>
+                <Route
+                    path="simple-counter"
+                    element={<SimpleCounter/>}
+                >
                 </Route>
-                    <Route
-                        path="simple-counter"
-                        element={<SimpleCounter/>}
-                    >
-                    </Route>
-                    <Route path="counter-with-settings" element={
-                        <CounterWithSettings counterValue={counterValue}
-                                             setCounterValue={setCounterValue}
-                                             startValue={startValue}
-                                             maxValue={maxValue}
-                                             textError={textError}
-                                             setMaxValue={setMaxValue}
-                        />}>
-                        </Route>
+                <Route path="counter-with-settings" element={
+                    <CounterWithSettings counterValue={counterValue}
+                                         setCounterValue={setCounterValue}
+                                         startValue={startValue}
+                                         maxValue={maxValue}
+                                         textError={textError}
+                                         setMaxValue={setMaxValue}
+                                         setStartValue={setStartValue}
+                    />}>
+                </Route>
             </Routes>
         </div>
     );

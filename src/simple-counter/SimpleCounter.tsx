@@ -21,8 +21,6 @@ export const SimpleCounter = () => {
         <div>
             <Header title={'COUNTER'}/>
             <div className={style.counterWrapper}>
-                {/*<div className={style.header}>COUNTER</div>*/}
-                {/*<div>*/}
                     <div className={style.counterValue}>{counterValue}</div>
                     <div className={style.buttonWrapper}>
                         <button className={style.button}
@@ -34,7 +32,6 @@ export const SimpleCounter = () => {
                         <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
                     </div>
                 </div>
-            {/*</div>*/}
             <div style={{display: "flex", flexFlow: 'column', alignItems: 'center'}}>
                 <NavLink className={style.buttonReturn} to={'/'}>RETURN</NavLink>
             </div>

@@ -2,19 +2,28 @@ import React, {useState} from 'react';
 import style from './SimpleCounter.module.css';
 import {NavLink} from "react-router-dom";
 import {Header} from "../common/Header";
+import {useDispatch, useSelector} from "react-redux";
+import {RootStateType} from "../store/store";
+import {decrementCounterValueAC, incrementCounterValueAC, resetCounterValueAC} from "../store/simple-counter-reducer";
 
 export const SimpleCounter = () => {
 
-    const [counterValue, setCounterValue] = useState<number>(0);
+    const counterValue = useSelector<RootStateType, number>(state => state.simpleCounterReducer.counterValue);
+    const dispatch = useDispatch();
+
+    // const [counterValue, setCounterValue] = useState<number>(0);
 
     const incrementCounterValue = () => {
-        setCounterValue(counterValue + 1);
+        dispatch(incrementCounterValueAC(counterValue))
+        // setCounterValue(counterValue + 1);
     }
     const decrementCounterValue = () => {
-        setCounterValue(counterValue - 1);
+        dispatch(decrementCounterValueAC(counterValue))
+        // setCounterValue(counterValue - 1);
     }
     const resetCounterValue = () => {
-        setCounterValue(0);
+        dispatch(resetCounterValueAC())
+        // setCounterValue(0);
     }
 
     return (

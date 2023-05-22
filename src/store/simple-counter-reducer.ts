@@ -1,44 +1,24 @@
 type initialStateType = {
-    counterValue: number
+    counterValue: number;
 }
 const initialState: initialStateType = {
-    counterValue: 0
+    counterValue: 0,
 }
 
-export const simpleCounterReducer = (state = initialState, action: ActionsType): initialStateType => {
+export const simpleCounterReducer = (state = initialState, action: SetCounterValueType): initialStateType => {
     switch (action.type) {
-        case 'INCREMENT_COUNTER_VALUE':
-            return {...state, counterValue: action.counterValue + 1}
-        case 'DECREMENT_COUNTER_VALUE':
-            return {...state, counterValue: action.counterValue - 1}
-        case 'RESET_COUNTER_VALUE':
-            return {...state, counterValue: 0}
+        case 'SET_COUNTER_VALUE':
+            return {...state, counterValue: action.counterValue}
         default:
             return state
     }
 }
 
-type IncrementCounterValueType = ReturnType<typeof incrementCounterValueAC>;
-type DecrementCounterValueType = ReturnType<typeof decrementCounterValueAC>;
-type ResetCounterValueType = ReturnType<typeof resetCounterValueAC>;
-type ActionsType = IncrementCounterValueType
-    | DecrementCounterValueType
-    | ResetCounterValueType;
+type SetCounterValueType = ReturnType<typeof setCounterValueAC>;
 
-export const incrementCounterValueAC = (counterValue: number) => {
+export const setCounterValueAC = (counterValue: number) => {
     return {
-        type: 'INCREMENT_COUNTER_VALUE',
+        type: 'SET_COUNTER_VALUE',
         counterValue
-    } as const
-}
-export const decrementCounterValueAC = (counterValue: number) => {
-    return {
-        type: 'DECREMENT_COUNTER_VALUE',
-        counterValue
-    } as const
-}
-export const resetCounterValueAC = () => {
-    return {
-        type: 'RESET_COUNTER_VALUE',
     } as const
 }

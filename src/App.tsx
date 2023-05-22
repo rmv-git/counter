@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import {Dashboard} from "./dashboard/Dashboard";
 import {Route, Routes} from "react-router-dom";
@@ -9,12 +9,6 @@ import {RootStateType} from "./store/store";
 import {initialStateType, setErrorAC, setMaxValueAC, setStartValueAC} from "./store/counter-with-settings-reducer";
 
 export const App = () => {
-
-   /* const [counterValue, setCounterValue] = useState<number>(0);
-    const [startValue, setStartValue] = useState<number>(0);
-    const [maxValue, setMaxValue] = useState<number>(0);
-    const [textError, setTextError] = useState<string>('');
-*/
     const values = useSelector<RootStateType, initialStateType>(state => state.counterWithSettingsReducer);
     const dispatch = useDispatch();
 
@@ -66,13 +60,9 @@ export const App = () => {
                 </Route>
                 <Route path="counter-with-settings" element={
                     <CounterWithSettings counterValue={values.counterValue}
-                                         // setCounterValue={setCounterValue}
                                          startValue={values.startValue}
                                          maxValue={values.maxValue}
-                                         textError={values.textError}
-                                         // setMaxValue={setMaxValue}
-                                         // setStartValue={setStartValue}
-                    />}>
+                                         textError={values.textError}/>}>
                 </Route>
             </Routes>
         </div>

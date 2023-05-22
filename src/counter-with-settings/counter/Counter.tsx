@@ -7,11 +7,9 @@ import {useDispatch} from "react-redux";
 
 type PropsType = {
     counterValue: number;
-    // setCounterValue: (value: number) => void;
     startValue: number;
     maxValue: number;
     textError: string;
-    // setMaxValue: (value: number) => void;
 }
 
 export const Counter = ({counterValue, startValue, maxValue, textError}: PropsType) => {

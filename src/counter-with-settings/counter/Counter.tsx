@@ -2,26 +2,30 @@ import React from 'react';
 import style from './Counter.module.css';
 import {Header} from "../../common/Header";
 import {NavLink} from "react-router-dom";
+import {setCounterValueAC} from "../../store/counter-with-settings-reducer";
+import {useDispatch} from "react-redux";
 
 type PropsType = {
     counterValue: number;
-    setCounterValue: (value: number) => void;
+    // setCounterValue: (value: number) => void;
     startValue: number;
     maxValue: number;
     textError: string;
-    setMaxValue: (value: number) => void;
+    // setMaxValue: (value: number) => void;
 }
 
-export const Counter = ({counterValue, setCounterValue, startValue, maxValue, textError}: PropsType) => {
+export const Counter = ({counterValue, startValue, maxValue, textError}: PropsType) => {
+
+    const dispatch = useDispatch();
 
     const incrementCounterValue = () => {
-        setCounterValue(counterValue + 1);
+        dispatch(setCounterValueAC(counterValue + 1));
     }
     const decrementCounterValue = () => {
-        setCounterValue(counterValue - 1);
+        dispatch(setCounterValueAC(counterValue - 1));
     }
     const resetCounterValue = () => {
-        setCounterValue(0);
+        dispatch(setCounterValueAC(0));
     }
 
     const errorINC = counterValue === maxValue || counterValue < startValue;

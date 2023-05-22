@@ -1,8 +1,10 @@
 import {combineReducers, createStore} from "redux";
 import {simpleCounterReducer} from "./simple-counter-reducer";
+import {counterWithSettingsReducer} from "./counter-with-settings-reducer";
 
 const rootReducer = combineReducers({
     simpleCounterReducer,
+    counterWithSettingsReducer,
 });
 
 export const reduxStore = createStore(rootReducer);

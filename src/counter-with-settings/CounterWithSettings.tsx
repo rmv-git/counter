@@ -5,37 +5,39 @@ import {Counter} from "./counter/Counter";
 
 type PropsType = {
     counterValue: number;
-    setCounterValue: (value: number) => void;
+    // setCounterValue: (value: number) => void;
     startValue: number;
-    setStartValue: (value: number) => void;
+    // setStartValue: (value: number) => void;
     maxValue: number;
     textError: string;
-    setMaxValue: (value: number) => void;
+    // setMaxValue: (value: number) => void;
 }
 
 export const CounterWithSettings = ({
                                         counterValue,
-                                        setCounterValue,
+                                        // setCounterValue,
                                         startValue,
-                                        setStartValue,
+                                        // setStartValue,
                                         maxValue,
-                                        setMaxValue,
+                                        // setMaxValue,
                                         textError
                                     }: PropsType) => {
     return (
         <div className={style.wrapper}>
             <Settings counterValue={counterValue}
-                      setCounterValue={setCounterValue}
+                      // setCounterValue={setCounterValue}
                       startValue={startValue}
-                      setStartValue={setStartValue}
+                      // setStartValue={setStartValue}
                       maxValue={maxValue}
-                      setMaxValue={setMaxValue}/>
+                      // setMaxValue={setMaxValue}
+            />
             <Counter counterValue={counterValue}
-                     setCounterValue={setCounterValue}
+                     // setCounterValue={setCounterValue}
                      startValue={startValue}
                      maxValue={maxValue}
                      textError={textError}
-                     setMaxValue={setMaxValue}/>
+                     // setMaxValue={setMaxValue}
+            />
         </div>
     );
 };

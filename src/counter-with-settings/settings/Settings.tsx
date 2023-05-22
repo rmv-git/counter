@@ -1,42 +1,46 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react';
 import style from "./Settings.module.css";
 import {Header} from "../../common/Header";
+import {setCounterValueAC, setMaxValueAC, setStartValueAC} from "../../store/counter-with-settings-reducer";
+import {useDispatch} from "react-redux";
 
 type PropsType = {
     counterValue: number;
-    setCounterValue: (counterValue: number) => void;
+    // setCounterValue: (counterValue: number) => void;
     startValue: number;
-    setStartValue: (startValue: number) => void;
+    // setStartValue: (startValue: number) => void;
     maxValue: number;
-    setMaxValue: (maxValue: number) => void;
+    // setMaxValue: (maxValue: number) => void;
 }
 export const Settings = ({
                              counterValue,
-                             setCounterValue,
+                             // setCounterValue,
                              startValue,
-                             setStartValue,
+                             // setStartValue,
                              maxValue,
-                             setMaxValue,
+                             // setMaxValue,
                          }: PropsType) => {
 
 
+    const dispatch = useDispatch();
+
     const onChangeStartValue = (event: ChangeEvent<HTMLInputElement>) => {
-        setStartValue(+event.currentTarget.value);
+        dispatch(setStartValueAC(+event.currentTarget.value));
         console.log(event.currentTarget.value)
     }
     const onChangeMaxValue = (event: ChangeEvent<HTMLInputElement>) => {
-        setMaxValue(+event.currentTarget.value);
+        dispatch(setMaxValueAC(+event.currentTarget.value));
         console.log(event.currentTarget.value)
     }
 
     const setValue = () => {
-        setCounterValue(startValue);
+        dispatch(setCounterValueAC(startValue));
     }
 
     const onKeyPressHandler = (event: KeyboardEvent<HTMLInputElement>) => {
         const {key} = event;
         if (key === 'Enter') {
-            setCounterValue(startValue);
+            dispatch(setCounterValueAC(startValue));
         }
     }
 

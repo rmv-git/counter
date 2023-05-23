@@ -7,6 +7,7 @@ import {CounterWithSettings} from "./counter-with-settings/CounterWithSettings";
 import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "./store/store";
 import {initialStateType, setErrorAC, setMaxValueAC, setStartValueAC} from "./store/counter-with-settings-reducer";
+import {Settings} from "./counter-with-settings/settings/Settings";
 
 export const App = () => {
     const values = useSelector<RootStateType, initialStateType>(state => state.counterWithSettingsReducer);
@@ -57,6 +58,14 @@ export const App = () => {
                     path="simple-counter"
                     element={<SimpleCounter/>}
                 >
+                </Route>
+                <Route path={"settings"} element={
+                    <Settings counterValue={values.counterValue}
+                              startValue={values.startValue}
+                              maxValue={values.maxValue}/>
+
+                }>
+
                 </Route>
                 <Route path="counter-with-settings" element={
                     <CounterWithSettings counterValue={values.counterValue}

@@ -133,3 +133,21 @@
     font-size: medium;
     text-decoration: none;
 }
+.navbttn {
+    width: 128px;
+    height: 48px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    margin: 5px 0 5px 0;
+    background-color: #f9bc60;
+    color: black;
+    font-size: medium;
+    text-decoration: none;
+}

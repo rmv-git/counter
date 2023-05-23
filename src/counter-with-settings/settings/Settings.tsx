@@ -3,6 +3,8 @@ import style from "./Settings.module.css";
 import {Header} from "../../common/Header";
 import {setCounterValueAC, setMaxValueAC, setStartValueAC} from "../../store/counter-with-settings-reducer";
 import {useDispatch} from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 type PropsType = {
     counterValue: number;
@@ -23,6 +25,7 @@ export const Settings = ({
 
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const onChangeStartValue = (event: ChangeEvent<HTMLInputElement>) => {
         dispatch(setStartValueAC(+event.currentTarget.value));
@@ -35,6 +38,9 @@ export const Settings = ({
 
     const setValue = () => {
         dispatch(setCounterValueAC(startValue));
+        if (startValue) {
+            navigate("/counter-with-settings");
+        }
     }
 
     const onKeyPressHandler = (event: KeyboardEvent<HTMLInputElement>) => {

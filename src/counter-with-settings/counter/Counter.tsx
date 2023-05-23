@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Counter.module.css';
 import {Header} from "../../common/Header";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {setCounterValueAC} from "../../store/counter-with-settings-reducer";
 import {useDispatch} from "react-redux";
 
@@ -15,6 +15,7 @@ type PropsType = {
 export const Counter = ({counterValue, startValue, maxValue, textError}: PropsType) => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const incrementCounterValue = () => {
         dispatch(setCounterValueAC(counterValue + 1));
@@ -24,6 +25,7 @@ export const Counter = ({counterValue, startValue, maxValue, textError}: PropsTy
     }
     const resetCounterValue = () => {
         dispatch(setCounterValueAC(0));
+        navigate('/settings')
     }
 
     const errorINC = counterValue === maxValue || counterValue < startValue;
@@ -44,7 +46,9 @@ export const Counter = ({counterValue, startValue, maxValue, textError}: PropsTy
                         <button className={style.button}
                                 onClick={decrementCounterValue} disabled={errorDEC}>DEC
                         </button>
-                        <button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>
+                        {/*<NavLink className={style.navbttn} to={'/settings'}>SETTINGS</NavLink>*/}
+                        {/*<button className={style.buttonReset} onClick={resetCounterValue}>RESET</button>*/}
+                        <button className={style.buttonReset} onClick={resetCounterValue}>SETTINGS</button>
                     </div>
                 </div>
             </div>

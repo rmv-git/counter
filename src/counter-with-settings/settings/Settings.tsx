@@ -3,24 +3,17 @@ import style from "./Settings.module.css";
 import {Header} from "../../common/Header";
 import {setCounterValueAC, setMaxValueAC, setStartValueAC} from "../../store/counter-with-settings-reducer";
 import {useDispatch} from "react-redux";
-import { useNavigate } from "react-router-dom";
-
+import {useNavigate} from "react-router-dom";
 
 type PropsType = {
     counterValue: number;
-    // setCounterValue: (counterValue: number) => void;
     startValue: number;
-    // setStartValue: (startValue: number) => void;
     maxValue: number;
-    // setMaxValue: (maxValue: number) => void;
 }
 export const Settings = ({
                              counterValue,
-                             // setCounterValue,
                              startValue,
-                             // setStartValue,
                              maxValue,
-                             // setMaxValue,
                          }: PropsType) => {
 
 

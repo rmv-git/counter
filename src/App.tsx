@@ -63,15 +63,14 @@ export const App = () => {
                     <Settings counterValue={values.counterValue}
                               startValue={values.startValue}
                               maxValue={values.maxValue}/>
-
                 }>
-
                 </Route>
                 <Route path="counter-with-settings" element={
                     <CounterWithSettings counterValue={values.counterValue}
                                          startValue={values.startValue}
                                          maxValue={values.maxValue}
-                                         textError={values.textError}/>}>
+                                         textError={values.textError}/>
+                }>
                 </Route>
             </Routes>
         </div>
